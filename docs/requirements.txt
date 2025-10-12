@@ -1,0 +1,7 @@
+# Sphinx documentation dependencies
+sphinx
+sphinx-rtd-theme
+sphinx-autobuild
+sphinx-inventory-builder
+sphinx-markdown-builder
+sphinx-llms-txt

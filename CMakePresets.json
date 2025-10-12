@@ -1,0 +1,47 @@
+{
+  "version": 6,
+  "configurePresets": [
+    {
+      "name": "documentation",
+      "displayName": "Documentation Build",
+      "description": "Configure project with documentation environment setup",
+      "binaryDir": "${sourceDir}/build"
+    }
+  ],
+  "buildPresets": [
+    {
+      "name": "documentation",
+      "displayName": "Build Documentation",
+      "configurePreset": "documentation",
+      "targets": ["modules"]
+    },
+    {
+      "name": "build-module-inv",
+      "displayName": "Build module_inv",
+      "configurePreset": "documentation",
+      "targets": ["modules_inv"]
+    },
+    {
+      "name": "build-modules-parallel",
+      "displayName": "Build module and module_md in parallel",
+      "configurePreset": "documentation",
+      "targets": ["modules", "modules_md"]
+    }
+  ],
+  "workflowPresets": [
+    {
+      "name": "documentation-workflow",
+      "displayName": "Documentation Build Workflow",
+      "steps": [
+        {
+          "type": "configure",
+          "name": "documentation"
+        },
+        {
+          "type": "build",
+          "name": "build-modules-parallel"
+        }
+      ]
+    }
+  ]
+}
