@@ -1,9 +1,3 @@
-# Modules Documentation
-message(STATUS "Configuring documentation for Modules")
-
-# Include the reusable Sphinx module function
-include(AddSphinxModule)
-
 # Create modules target
 add_custom_target(modules)
 add_custom_target(modules_inv)
