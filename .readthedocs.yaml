@@ -6,9 +6,10 @@ build:
     python: "3.13"
   apt_packages:
     - cmake
-  commands:
-    # Run the CMake workflow to build documentation
-    - cmake --workflow --preset documentation-workflow
-    # Copy built documentation to Read the Docs output directory
-    - mkdir -p $READTHEDOCS_OUTPUT/html
-    - cp -r build/modules/* $READTHEDOCS_OUTPUT/html/
+  jobs:
+    post_build:
+      # Run the CMake workflow to build documentation
+      - cmake --workflow --preset documentation-workflow
+      # Copy built documentation to Read the Docs output directory
+      - mkdir -p $READTHEDOCS_OUTPUT/html
+      - cp -r build/modules/* $READTHEDOCS_OUTPUT/html/
