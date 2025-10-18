@@ -4,12 +4,11 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
-  apt_packages:
-    - cmake
-  jobs:
-    post_build:
-      # Run the CMake workflow to build documentation
-      - cmake --workflow --preset documentation-workflow
-      # Copy built documentation to Read the Docs output directory
-      - mkdir -p $READTHEDOCS_OUTPUT/html
-      - cp -r build/modules/* $READTHEDOCS_OUTPUT/html/
+  commands:
+    # Install CMake via pip
+    - pip install cmake
+    # Run the CMake workflow to build documentation
+    - cmake --workflow --preset documentation-workflow
+    # Copy built documentation to Read the Docs output directory
+    - mkdir -p $READTHEDOCS_OUTPUT/html
+    - cp -r build/modules/* $READTHEDOCS_OUTPUT/html/
