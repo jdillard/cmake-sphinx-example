@@ -4,9 +4,9 @@ build:
   os: ubuntu-24.04
   tools:
     python: "3.13"
+  apt_packages:
+    - cmake
   commands:
-    # Install CMake
-    - apt-get update && apt-get install -y cmake
     # Run the CMake workflow to build documentation
     - cmake --workflow --preset documentation-workflow
     # Copy built documentation to Read the Docs output directory
